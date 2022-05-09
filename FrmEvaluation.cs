@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Evaluation_Manager.Models;
+using Evaluation_Manager.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,39 +14,34 @@ namespace Evaluation_Manager
 {
 	public partial class FrmEvaluation : Form
 	{
-		public FrmEvaluation()
+		private Student student;
+
+		public FrmEvaluation(Models.Student selectedStudent)
 		{
 			InitializeComponent();
+			student = selectedStudent;
 		}
 
 		private void FrmEvaluation_Load(object sender, EventArgs e)
 		{
-
+			Text = student.FirstName + " " + student.LastName;
+			List<Activity> activities = ActivityRepository.GetActivities();
+			comboBox1.DataSource = activities;
 		}
 
-		private void label1_Click(object sender, EventArgs e)
+		private void comboBox1_SelectedIndexchange(object sender, EventArgs e)
 		{
-
+			Activity currentActivity = comboBox1.SelectedItem as Activity;
+			txtDescription.Text = currentActivity.Description;
+			txtGrade.Text = currentActivity.MinPointsForGrade + "/" + currentActivity.MaxPoints;
+			txtSignature.Text = currentActivity.MinPointsForSignature + "/" + currentActivity.MaxPoints;
+			numericUpDown1.Minimum = 0;
+			numericUpDown1.Maximum = currentActivity.MaxPoints;
 		}
 
-		private void label2_Click(object sender, EventArgs e)
+		private void btnCancel_Click(object sender, EventArgs e)
 		{
-
-		}
-
-		private void label4_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void label4_Click_1(object sender, EventArgs e)
-		{
-
-		}
-
-		private void button2_Click(object sender, EventArgs e)
-		{
-
+			Close();
 		}
 	}
 }

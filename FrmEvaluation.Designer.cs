@@ -31,9 +31,9 @@
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.txtSignature = new System.Windows.Forms.TextBox();
+			this.txtGrade = new System.Windows.Forms.TextBox();
+			this.txtDescription = new System.Windows.Forms.TextBox();
 			this.txtTeacher = new System.Windows.Forms.Label();
 			this.txtEvaluationDate = new System.Windows.Forms.Label();
 			this.numPoints = new System.Windows.Forms.Label();
@@ -55,7 +55,6 @@
 			this.label1.Size = new System.Drawing.Size(69, 17);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Aktivnost:";
-			this.label1.Click += new System.EventHandler(this.label1_Click);
 			// 
 			// label2
 			// 
@@ -66,7 +65,6 @@
 			this.label2.Size = new System.Drawing.Size(105, 17);
 			this.label2.TabIndex = 1;
 			this.label2.Text = "Uvjet za potpis:";
-			this.label2.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// label3
 			// 
@@ -78,27 +76,27 @@
 			this.label3.TabIndex = 2;
 			this.label3.Text = "Uvjet za ocjenu:";
 			// 
-			// textBox1
+			// txtSignature
 			// 
-			this.textBox1.Location = new System.Drawing.Point(323, 39);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(150, 20);
-			this.textBox1.TabIndex = 3;
+			this.txtSignature.Location = new System.Drawing.Point(323, 39);
+			this.txtSignature.Name = "txtSignature";
+			this.txtSignature.Size = new System.Drawing.Size(150, 20);
+			this.txtSignature.TabIndex = 3;
 			// 
-			// textBox2
+			// txtGrade
 			// 
-			this.textBox2.Location = new System.Drawing.Point(594, 38);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(150, 20);
-			this.textBox2.TabIndex = 4;
+			this.txtGrade.Location = new System.Drawing.Point(594, 38);
+			this.txtGrade.Name = "txtGrade";
+			this.txtGrade.Size = new System.Drawing.Size(150, 20);
+			this.txtGrade.TabIndex = 4;
 			// 
-			// textBox3
+			// txtDescription
 			// 
-			this.textBox3.Location = new System.Drawing.Point(23, 110);
-			this.textBox3.Multiline = true;
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(721, 191);
-			this.textBox3.TabIndex = 5;
+			this.txtDescription.Location = new System.Drawing.Point(23, 110);
+			this.txtDescription.Multiline = true;
+			this.txtDescription.Name = "txtDescription";
+			this.txtDescription.Size = new System.Drawing.Size(721, 191);
+			this.txtDescription.TabIndex = 5;
 			// 
 			// txtTeacher
 			// 
@@ -109,7 +107,6 @@
 			this.txtTeacher.Size = new System.Drawing.Size(73, 17);
 			this.txtTeacher.TabIndex = 6;
 			this.txtTeacher.Text = "Ocjenjivač";
-			this.txtTeacher.Click += new System.EventHandler(this.label4_Click);
 			// 
 			// txtEvaluationDate
 			// 
@@ -120,7 +117,6 @@
 			this.txtEvaluationDate.Size = new System.Drawing.Size(116, 17);
 			this.txtEvaluationDate.TabIndex = 7;
 			this.txtEvaluationDate.Text = "Datum evaluacije";
-			this.txtEvaluationDate.Click += new System.EventHandler(this.label4_Click_1);
 			// 
 			// numPoints
 			// 
@@ -172,7 +168,7 @@
 			this.btnCancel.TabIndex = 13;
 			this.btnCancel.Text = "Odustani";
 			this.btnCancel.UseVisualStyleBackColor = true;
-			this.btnCancel.Click += new System.EventHandler(this.button2_Click);
+			this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
 			// 
 			// comboBox1
 			// 
@@ -197,9 +193,9 @@
 			this.Controls.Add(this.numPoints);
 			this.Controls.Add(this.txtEvaluationDate);
 			this.Controls.Add(this.txtTeacher);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
+			this.Controls.Add(this.txtDescription);
+			this.Controls.Add(this.txtGrade);
+			this.Controls.Add(this.txtSignature);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
@@ -217,9 +213,9 @@
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox3;
+		private System.Windows.Forms.TextBox txtSignature;
+		private System.Windows.Forms.TextBox txtGrade;
+		private System.Windows.Forms.TextBox txtDescription;
 		private System.Windows.Forms.Label txtTeacher;
 		private System.Windows.Forms.Label txtEvaluationDate;
 		private System.Windows.Forms.Label numPoints;
