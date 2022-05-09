@@ -14,22 +14,25 @@ namespace Evaluation_Manager.Repositories
         public static Student GetStudent(int id)
         {
             Student student = null;
+
             string sql = $"SELECT * FROM Students WHERE Id = {id}";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
-            if (reader.HasRows)
+            if(reader.HasRows)
             {
                 reader.Read();
                 student = CreateObject(reader);
                 reader.Close();
             }
+
             DB.CloseConnection();
             return student;
         }
 
         public static List<Student> GetStudents()
         {
-            List<Student> students = new List<Student>();
+            var students = new List<Student>();
+
             string sql = "SELECT * FROM Students";
             DB.OpenConnection();
             var reader = DB.GetDataReader(sql);
@@ -38,23 +41,27 @@ namespace Evaluation_Manager.Repositories
                 Student student = CreateObject(reader);
                 students.Add(student);
             }
+
             reader.Close();
             DB.CloseConnection();
+
             return students;
         }
 
         private static Student CreateObject(SqlDataReader reader)
         {
-            //int id = int.Parse(reader["Id"].ToString());
-            //string firstName = reader["FirstName"].ToString();
-            //string lastName = reader["LastName"].ToString();
-            int.TryParse(reader["Grade"].ToString(), out int grade);
+            int id = int.Parse(reader["Id"].ToString());
+            string firstName = reader["FirstName"].ToString();
+            string lastName = reader["LastName"].ToString();
+            int grade = int.Parse(reader["Grade"].ToString());
 
-            Student student = new Student();
-            student.Id = int.Parse(reader["Id"].ToString());
-            student.FirstName = reader["FirstName"].ToString();
-            student.LastName = reader["LastName"].ToString();
-            student.Grade = grade;
+            var student = new Student
+            {
+                Id = id,
+                FirstName = firstName,
+                LastName = lastName,
+                Grade = grade
+            };
 
             return student;
         }
